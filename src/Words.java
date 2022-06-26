@@ -1,9 +1,22 @@
 import java.util.Random;
 
 public class Words {
-    private String[] randomWords = { "animals", "happyness", "idefinete", "steady", "birthday",
-            "extreeme", "rights", "properties", "ceremony", "independence", "beneath",
-            "information", "students", "employee" };
+    private String[] randomWords = {
+            "animals",
+            "happiness",
+            "indefinite",
+            "steady",
+            "birthday",
+            "extreme",
+            "rights",
+            "properties",
+            "ceremony",
+            "independence",
+            "beneath",
+            "information",
+            "students",
+            "employee"
+    };
 
     private String selectedWord;
     private Random random = new Random();
