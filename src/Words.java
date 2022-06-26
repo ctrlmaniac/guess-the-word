@@ -1,22 +1,9 @@
 import java.util.Random;
 
 public class Words {
-    private final String[] randomWords = {
-            "animals",
-            "happiness",
-            "indefinite",
-            "steady",
-            "birthday",
-            "extreme",
-            "rights",
-            "properties",
-            "ceremony",
-            "independence",
-            "beneath",
-            "information",
-            "students",
-            "employee",
-    };
+    private String[] randomWords = { "animals", "happyness", "idefinete", "steady", "birthday",
+            "extreeme", "rights", "properties", "ceremony", "independence", "beneath",
+            "information", "students", "employee" };
 
     private String selectedWord;
     private Random random = new Random();
@@ -30,7 +17,7 @@ public class Words {
     public String toString() {
         StringBuilder text = new StringBuilder();
 
-        for (char letter: letters) {
+        for (char letter : letters) {
             text.append(letter == '\u0000' ? '-' : letter);
             text.append(' ');
         }
@@ -42,15 +29,17 @@ public class Words {
         boolean guessedRight = false;
 
         for (int i = 0; i < selectedWord.length(); i++) {
-            letters[i] = letter;
-            guessedRight = true;
+            if (letter == selectedWord.charAt(i)) {
+                letters[i] = letter;
+                guessedRight = true;
+            }
         }
 
         return guessedRight;
     }
 
     public boolean isGuessedRight() {
-        for (char letter: letters) {
+        for (char letter : letters) {
             if (letter == '\u0000') {
                 return false;
             }

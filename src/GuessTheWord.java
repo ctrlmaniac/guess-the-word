@@ -12,7 +12,7 @@ public class GuessTheWord {
             showWord();
             getInput();
             checkInput();
-        } while(play);
+        } while (play);
     }
 
     void showWord() {
