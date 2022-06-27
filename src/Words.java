@@ -1,30 +1,36 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Words {
-    private String[] randomWords = {
-            "animals",
-            "happiness",
-            "indefinite",
-            "steady",
-            "birthday",
-            "extreme",
-            "rights",
-            "properties",
-            "ceremony",
-            "independence",
-            "beneath",
-            "information",
-            "students",
-            "employee"
-    };
-
     private String selectedWord;
     private Random random = new Random();
     private char[] letters;
 
+    ArrayList<String> randomWords = new ArrayList<String>();
+
     public Words() {
-        selectedWord = randomWords[random.nextInt(randomWords.length)];
+        getWordsFromFile("words.txt");
+        selectedWord = randomWords.get(random.nextInt(randomWords.size()));
         letters = new char[selectedWord.length()];
+    }
+
+    private void getWordsFromFile(String filename) {
+        // Read words form file words.txt
+        File file = new File(filename);
+
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                randomWords.add(line);
+            }
+
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public String toString() {
